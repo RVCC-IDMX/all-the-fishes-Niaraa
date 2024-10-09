@@ -22,9 +22,27 @@
         document.body.appendChild(app.canvas);
 
         //Load in sprite
+        await PIXI.Assets.load('img/aquarium_PNG42.png');
+
+        //Add sprite
+        let fish = PIXI.Sprite.from('img/aquarium_PNG42.png');
+        fish.scale.set(.75);
+        fish.scale.x = -.95;
+        fish.anchor.x = .500;
+        fish.anchor.y = .500;
+        fish.tint = 0xFFFFFF;
+        fish.x = 300;
+        fish.y = 200;
+
+        app.stage.addChild(fish);
+
+
+
+
+        //Load in sprite
         await PIXI.Assets.load('img/R.png');
 
-        //Add first sprite
+        //Add sprite
         let fish1 = PIXI.Sprite.from('img/R.png');
         fish1.scale.set(.25);
         fish1.scale.x = -.55;
@@ -57,6 +75,11 @@
     //Add it to the stage
 
     app.stage.addChild(fishContainer);
+    
+    let fishbowl = ('img/aquarium_PNG42.png');
+
+
+
 
     //Counter
     let counter = 0;
@@ -72,6 +95,7 @@
 
             //Fish 2 Animation
             fish2.y = (Math.sin(counter/60)* 50) + 150;
+            fish1.angle = (Math.sin(counter/70) * 7); 
             fish2.scale.x = (Math.sin(counter/4.5) * .005) + .25;
 
             requestAnimationFrame(loop);
