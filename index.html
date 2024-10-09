@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All the Fishes</title>
+    <script src="https://pixijs.download/release/pixi.js"></script>
+</head>
+
+<body>
+
+    <script type="module">
+
+        const app = new PIXI.Application();
+        await app.init({
+            width: 640,
+            height: 480,
+            backgroundColor: 0x000000
+        });
+        //Add canvas to body
+        document.body.appendChild(app.canvas);
+
+        //Load in sprite
+        await PIXI.Assets.load('img/R.png');
+
+        //Add first sprite
+        let fish1 = PIXI.Sprite.from('img/R.png');
+        app.stage.addChild(fish1);
+
+        let counter = 0;
+
+        function loop() {
+            counter++;
+
+fish1.y = (Math.sin(counter/40)* 50) + 200;
+
+requestAnimationFrame(loop);
+
+        }
+
+
+
+loop();
+
+
+    </script>
+
+</body>
+
+</html>
