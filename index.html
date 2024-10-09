@@ -27,22 +27,23 @@
         //Add first sprite
         let fish1 = PIXI.Sprite.from('img/R.png');
         fish1.scale.set(.25);
-        fish1.scale.x = -.25;
+        fish1.scale.x = -.55;
         fish1.anchor.x = .8;
         fish1.anchor.y = .5;
         fish1.tint = 0xFF00FF;
-        fish1.x = 300;
+        fish1.x = 400;
         fish1.y = 200;
+
+        app.stage.addChild(fish1);
 
         //add it to the stage
         //app.stage.addChild(fish1);
         let fish2 = PIXI.Sprite.from('img/R.png');
         fish2.scale.set(.25);
-
-        fish2.anchor.set(.8, .5);
+        fish2.anchor.set(.10, .5);
         fish2.tint = 0xFFFFFF;
-        fish2.x = 180;
-        Fish2.y = 150;
+        fish2.x = 50;
+        fish2.y = 200;
 
     //Add it to the stage
     //app.stage.addChild(fish2);
@@ -65,13 +66,13 @@
             counter++;
 
             //Fish 1 Animation
-            fish1.y = I(Math.sin(counter/40) * 50) + 200;
+            fish1.y = (Math.sin(counter/40) * 50) + 200;
             fish1.angle = (Math.sin(counter/70) * 7); 
             fish1.scale.x = (Math.sin(counter/2) * .005) + -.25;
 
             //Fish 2 Animation
-            fish2.y = (Math.sin(counter/50)* 30) + 150;
-            fish2.scale.x = (Math.sin(counter/2.5) * .005) + .25;
+            fish2.y = (Math.sin(counter/60)* 50) + 150;
+            fish2.scale.x = (Math.sin(counter/4.5) * .005) + .25;
 
             requestAnimationFrame(loop);
 
